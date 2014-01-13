@@ -6,4 +6,7 @@ call vundle#rc()
 
 source ~/.vim/vimrc.bundles
 
+set laststatus=2
+let g:airline_powerline_fonts = 1
 
+set t_Co=256
