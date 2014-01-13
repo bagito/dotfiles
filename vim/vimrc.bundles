@@ -1,3 +1,6 @@
 Bundle 'gmarik/vundle'
 
+Bundle 'sjl/badwolf'
+
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'

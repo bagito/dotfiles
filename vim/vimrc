@@ -10,3 +10,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 
 set t_Co=256
+
+let g:badwolf_darkgutter = 1
+let g:badwolf_html_link_underline = 1
+let g:badwolf_css_props_highlight = 1
