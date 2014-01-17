@@ -11,6 +11,74 @@ let g:airline_powerline_fonts = 1
 
 set t_Co=256
 
+set background=dark
+
+filetype plugin indent on
+syntax on
+set mouse=a
+set mousehide
+scriptencoding utf-8
+
+if has('clipboard')
+	set clipboard=unnamedplus
+endif
+
+set shortmess+=filmnrxoOtT
+"set viewoptions=folds,options,cursor,unix,splash
+set virtualedit=onemore
+set history=1000
+set spell
+set hidden
+
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+function! ResCur()
+	if line("'\"") <= line("$")
+		normal! g`"
+		return 1
+	endif
+endfunction
+
+augroup resCur
+	autocmd!
+	autocmd BufWinEnter * call ResCur()
+augroup END
+
+set backup
+if has('persistent_undo')
+	set undofile
+	set undolevels=1000
+	set undoreload=10000
+endif
+
 let g:badwolf_darkgutter = 1
 let g:badwolf_html_link_underline = 1
 let g:badwolf_css_props_highlight = 1
+
+set tabpagemax=15
+set showmode
+
+set cursorline
+
+highlight clear SignColumn
+highlight clear LineNr
+let g:CSApprox_hook_post = ['hi clear SignColumn']
+
+set backspace=indent,eol,start
+set linespace=0
+set nu
+set showmatch
+set incsearch
+set hlsearch
+set winminheight=0
+set ignorecase
+set smartcase
+set wildmenu
+set wildmode=list:longest,full
+set whichwrap=b,s,h,l,<,>,[,]
+set scrolljump=5
+set scrolloff=3
+set foldenable
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
