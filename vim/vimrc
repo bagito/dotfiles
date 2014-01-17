@@ -6,8 +6,12 @@ call vundle#rc()
 
 source ~/.vim/vimrc.bundles
 
-set laststatus=2
-let g:airline_powerline_fonts = 1
+" airline {
+    set laststatus=2
+    let g:airline_powerline_fonts = 1
+    let g:ailine_theme = 'badwolf'
+    let g:airline#extensions#tabline#enabled = 1
+" }
 
 set t_Co=256
 
@@ -20,7 +24,7 @@ set mousehide
 scriptencoding utf-8
 
 if has('clipboard')
-	set clipboard=unnamedplus
+    set clipboard=unnamedplus
 endif
 
 set shortmess+=filmnrxoOtT
@@ -33,22 +37,22 @@ set hidden
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 function! ResCur()
-	if line("'\"") <= line("$")
-		normal! g`"
-		return 1
-	endif
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
 endfunction
 
 augroup resCur
-	autocmd!
-	autocmd BufWinEnter * call ResCur()
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
 augroup END
 
 set backup
 if has('persistent_undo')
-	set undofile
-	set undolevels=1000
-	set undoreload=10000
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
 endif
 
 let g:badwolf_darkgutter = 1
@@ -82,3 +86,46 @@ set foldenable
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
+" format {
+
+set nowrap
+set autoindent
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set nojoinspaces
+set splitright
+set splitbelow
+set pastetoggle=<F12>
+
+" }
+
+" keys {
+let mapleader = ','
+noremap j gj
+noremap k gk
+
+nnoremap Y y$
+
+vnoremap < <gv
+vnoremap > >gv
+
+cmap w!! w !sudo tee % >/dev/null
+
+" }
+
+" plugins {
+    " fugitive {
+        nnoremap <silent> <leader>gs :Gstatus<CR>
+        nnoremap <silent> <leader>gd :Gdiff<CR>
+        nnoremap <silent> <leader>gc :Gcommit<CR>
+        nnoremap <silent> <leader>gb :Gblame<CR>
+        nnoremap <silent> <leader>gl :Glog<CR>
+        nnoremap <silent> <leader>gp :Git push<CR>
+        nnoremap <silent> <leader>gr :Gread<CR>
+        nnoremap <silent> <leader>gw :Gwrite<CR>
+        nnoremap <silent> <leader>ge :Gedit<CR>
+        nnoremap <silent> <leader>gi :Git add -p %<CR>
+    " }
+" }
