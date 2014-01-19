@@ -4,3 +4,5 @@ Bundle 'sjl/badwolf'
 
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'klen/python-mode'
+
