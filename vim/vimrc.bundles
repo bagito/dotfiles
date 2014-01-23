@@ -6,4 +6,6 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdtree'
-
+Bundle 'tomasr/molokai'
+Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'vim-scripts/TaskList.vim'

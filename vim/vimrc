@@ -9,12 +9,14 @@ source ~/.vim/vimrc.bundles
 " airline {
     set laststatus=2
     let g:airline_powerline_fonts = 1
-    let g:ailine_theme = 'badwolf'
+    let g:ailine_theme = 'molokai'
     let g:airline#extensions#tabline#enabled = 1
 " }
 
-set t_Co=256
 
+set t_Co=256
+colorscheme molokai
+let g:rehash256=1
 set background=dark
 
 filetype plugin indent on
@@ -28,7 +30,7 @@ if has('clipboard')
 endif
 
 set shortmess+=filmnrxoOtT
-"set viewoptions=folds,options,cursor,unix,splash
+set viewoptions=folds,options,cursor,unix,slash
 set virtualedit=onemore
 set history=1000
 set spell
@@ -54,10 +56,6 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-
-let g:badwolf_darkgutter = 1
-let g:badwolf_html_link_underline = 1
-let g:badwolf_css_props_highlight = 1
 
 set tabpagemax=15
 set showmode
@@ -116,6 +114,10 @@ cmap w!! w !sudo tee % >/dev/null
 " }
 
 " plugins {
+    " tasklist {
+        map <leader>td <Plug>TaskList
+    " }
+
     " fugitive {
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -130,25 +132,45 @@ cmap w!! w !sudo tee % >/dev/null
     " }
     
     " python-mode {
-        let g:pymode_rope=1
+        let g:pymode = 1
+        let g:pymode_folding = 0
+        let g:pymode_syntax = 1
+        let g:pymode_syntax_all = 1
+        let g:pymode_syntax_print_as_function = 1
+        let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+        let g:pymode_syntax_string_format = g:pymode_syntax_all
+        let g:pymode_syntax_string_templates = g:pymode_syntax_all
+        let g:pymode_syntax_doctests = g:pymode_syntax_all
 
-        let g:pymode_doc=1
-        let g:pymode_doc_key='K'
+        let g:pymode_rope = 1
+        let g:pymode_rope_guess_project = 0
+        let g:pymode_rope_completion_bind = '<C-Space>'
+        let g:pymode_rope_autoimport = 1
+        let g:pymode_rope_rename_bind = '<C-c>rr'
 
-        let g:pymode_lint=1
-        let g:pymode_lint_checker="pyflakes,pep8"
-        let g:pymode_lint_write=1
+        let g:pymode_trim_whitespaces = 1
 
-        let g:pymode_virtualenv=1
+        let g:pymode_quickfix_minheight = 3
+        let g:pymode_quickfix_maxheight = 6
 
-        let g:pymode_breakpoint=1
-        let g:pymode_breakpoint_key='b'
+        let g:pymode_doc = 1
+        let g:pymode_doc_key = 'K'
 
-        let g:pymode_syntax=1
-        let g:pymode_syntax_all=1
+        let g:pymode_lint = 1
+        let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+        let g:pymode_lint_on_write = 1
+        let g:pymode_lint_message = 1
+        let g:pymode_lint_ignore = ""
+
+        let g:pymode_virtualenv = 1
+
+        let g:pymode_breakpoint = 1
+        let g:pymode_breakpoint_key = 'b'
+
+        let g:pymode_syntax = 1
+        let g:pymode_syntax_all = 1
         let g:pymode_syntax_indent_errors = g:pymode_syntax_all
         let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-        let g:pymode_folding=0
     " }
 " }
